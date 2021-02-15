@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <!--
+    <meta name="viewport" content="width=device-width">-->
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport">
+    <title>Klein Vossen Park ◉ Montenaken ◉ boerderijkamp</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <script src="js/vendor/custom.modernizr.js"></script>
+    <script type="text/javascript" src="//use.typekit.net/cqa5dzf.js"></script>
+    <script type="text/javascript">try {
+        Typekit.load();
+    } catch (e) {
+    }</script>
+    <!-- jQuery with jQuery Easing JS & background-position animation plugin -->
+    <script src="js/vendor/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.popup-gallery').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                tLoading: 'Loading image #%curr%...',
+                mainClass: 'mfp-img-mobile',
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+                },
+                image: {
+                    tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+                    titleSrc: function (item) {
+                        return item.el.attr('title') + '<small>door Koen Van Rompaey</small>';
+                    }
+                }
+
+            });
+        });
+        callbacks: {
+            open: setInterval(function () {
+                $.magnificPopup.instance.next()
+            }, 10000)
+        }
+    </script>
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
+    <script>
+        $(document).ready(function () {
+            $('form[name=nieuwsbriefform]').submit(function () {
+                //$('#melding').slideUp();
+                $.post('scripts/zendnieuwsbrief.php',
+                    {
+                        naam: $('[name=naam]').val(),
+                        email: $('[name=email]').val()
+                    }, function (data) {
+                        if (data.success) {
+                            $('#foutmelding').hide();
+                            $('#juistmelding').html(data.message).fadeIn(1000);
+                            setTimeout(function () {
+                                $('#juistmelding').fadeOut(1000);
+                            }, 5000);
+                            document.getElementById('naam').value = "";
+                            document.getElementById('email').value = "";
+                        } else {
+                            $('#juistmelding').hide();
+                            $('#foutmelding').html(data.message).fadeIn(1000);
+                            setTimeout(function () {
+                                $('#foutmelding').fadeOut(1000);
+                            }, 5000);
+                        }
+                    }, 'json');
+                return false;
+            })
+        });
+    </script>
+</head>
+<body>
+
+<!-- Header and Nav -->
+<div class="wrap03">
+    <div class="wrap02">
+        <div class="wrap01">
+            <div class="row nomobile">
+                <div class="large-10 columns" style="padding-top: 50px; padding-bottom: 45px;">
+                    <ul class="button-group left">
+                        <li><a href="index.html" class="button home">Home</a></li>
+                        <li><a href="informatie.html" class="button info">Info</a></li>
+                        <li><a href="activiteiten.html" class="button activiteiten active"
+                               style="background-color: #c2e09d;">Activiteiten</a></li>
+                        <!--<li><a href="fotosenfiches.html" class="button fiches">Fiches en foto's</a></li>-->
+                        <li><a href="actueel.html" class="button actueel">Actueel</a></li>
+                        <li><a href="links.html" class="button links">Links</a></li>
+                        <li><a href="contact.html" class="button contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="large-2 columns" style="padding-top:0px; padding-bottom: 0px"><img src="img/logo2.png"
+                                                                                               alt="logo klein vossen park"
+                    / class="responsive">
+                </div>
+            </div>
+
+            <!-- End Header and Nav -->
+            <!-- Header and Nav - mobile -->
+            <div class="row mobile">
+                <div class="large-12 columns" style="padding-top: 20px; padding-bottom: 20px">
+                    <ul class="button-group">
+                        <li><a href="index.html" class="button ">Home</a></li>
+                        <li><a href="informatie.html" class="button">Info</a></li>
+                        <li><a href="activiteiten.html" class="button active">Activiteiten</a></li>
+                        <li><a href="fotosenfiches.html" class="button">Fiches en foto's</a></li>
+                        <li><a href="actueel.html" class="button">Actueel</a></li>
+                        <li><a href="links.html" class="button">Links</a></li>
+                        <li><a href="contact.html" class="button">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-8 columns" style="padding-right: 10px; padding-bottom: 0px; position:relative">
+                    <div class="panel">
+                        <h3 class="subheader">Boerderijkamp:</h3>
+
+                        <p>
+                            Wil jij ook graag eens als een echte dierenverzorger aan de slag? Dan ben je bij het Kleine
+                            Vossen Park op het juiste adres! Je mag op deze supertoffe boerderij alle schattige diertjes
+                            voederen en verzorgen. Maar vergeet ook zeker niet de beestjes te vertroetelen, want ze
+                            houden ook wel van knuffels! Kom en ontdek het leven op de boerderij!</p>
+
+                        <h3 class="subheader">Prijs voor het Boerderijkamp:</h4>
+                            <p>De prijs voor deze volledige week is <span class="accent">€250</span>.</p>
+                            <h4>Inbegrepen zijn:</h4>
+                            <p> - Bekwame en enthousiaste begeleiders die van aanpakken weten <br>
+                                - Een verblijf in een authentiek vakantiecentrum midden in de bossen<br>
+                                - Lekkere maaltijden (ontbijt, middagmaal, vieruurtje en avondmaal)<br>
+                                - Spannende en leuke activiteiten onder professionele begeleiding<br>
+                                - Een prachtige locatie<br>
+                                - Een spetterende groepssfeer<br>
+                                - Interessante ontmoetingen met nieuwe mensen<br>
+                                - Een ongevallenverzekering en een verzekering burgerlijke aansprakelijkheid <br>
+                                - Een correcte terugbetaling van je medische kosten wanneer je ziek wordt tijdens de
+                                vakantie </p>
+                            <a href="https://wakasa.be/camp/GDQ1ZVVLX2">Klik hier om in te schrijven.</a>
+                    </div>
+                    <a href="activiteiten.html" class="vorige">Vorige</a></div>
+                <div class="large-4 columns" style="padding-left: 10px; padding-bottom: 0px; position:relative">
+                    <div class="popup-gallery">
+                        <a href="images/boerderijkamp/big/boerderijkamp_01.jpg" title=""><img
+                                src="images/boerderijkamp/small/boerderijkamp_01.jpg" height="100" width="100"></a>
+
+                        <a href="images/boerderijkamp/big/boerderijkamp_02.jpg" title=""><img
+                                src="images/boerderijkamp/small/boerderijkamp_02.jpg" height="100" width="100"></a>
+
+                        <a href="images/boerderijkamp/big/boerderijkamp_03.jpg" title=""><img
+                                src="images/boerderijkamp/small/boerderijkamp_03.jpg" height="100" width="100"></a>
+
+                        <a href="images/boerderijkamp/big/boerderijkamp_04.jpg" title=""><img
+                                src="images/boerderijkamp/small/boerderijkamp_04.jpg" height="100" width="100"></a>
+
+                        <a href="images/boerderijkamp/big/boerderijkamp_05.jpg" title=""><img
+                                src="images/boerderijkamp/small/boerderijkamp_05.jpg" height="100" width="100"></a>
+
+                        <a href="images/boerderijkamp/big/boerderijkamp_06.jpg" title=""><img
+                                src="images/boerderijkamp/small/boerderijkamp_06.jpg" height="100" width="100"></a>
+
+                        <a href="images/boerderijkamp/big/boerderijkamp_07.jpg" title=""><img
+                                src="images/boerderijkamp/small/boerderijkamp_07.jpg" height="100" width="100"></a>
+
+                        <a href="images/boerderijkamp/big/boerderijkamp_08.jpg" title=""><img
+                                src="images/boerderijkamp/small/boerderijkamp_08.jpg" height="100" width="100"></a>
+
+                        <a href="images/boerderijkamp/big/boerderijkamp_09.jpg" title=""><img
+                                src="images/boerderijkamp/small/boerderijkamp_09.jpg" height="100" width="100"></a></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+
+<div class="footerWrap01">
+    <footer class="row">
+        <div class="row">
+            <div class="large-8 columns" style="padding-right: 10px">
+                <div class="panel">
+                    <h3 class="subheader">Klein Vossen Park</h3>
+                    <p>Groenplaats 4, 3890 Montenaken</p>
+                    <p>Tel: 011 88 22 84, Fax: 011 78 33 60, GSM: 0477 36 36 63,<br/>
+                        e-mail: info@kleinvossenpark.be</p>
+                    <p> BTW: 0641 53 35 51<br/>
+                        Bankrelatie: BE26 0013 0083 1129 of 001-3008311-29</p>
+                </div>
+            </div>
+            <div class="large-4 columns" style="padding-left: 10px">
+                <div class="panel">
+                    <h3 class="subheader">Nieuwsbrief</h3>
+                    <form name="nieuwsbriefform" id="nieuwsbriefform">
+                        <input type="text" id="naam" name="naam" placeholder="Volledige naam">
+                        <div class="row">
+                            <div class="twelve columns">
+                                <input type="text" id="email" name="email" placeholder="Emailadres">
+                            </div>
+                        </div>
+                        <input type="submit" value="Verzenden" id="verzend" name="verzend">
+                        <div id="juistmelding"></div>
+                        <div id="foutmelding"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div class="footerWrap02">
+    <footer class="row">
+        <div class="row">
+            <div class="large-4 columns" style="padding-right: 10px">
+                <p style="text-align:left; padding-left: 1.80em; padding-top: 5px; font-size: 12px">Website door <a
+                        href="http://www.creabella.be">Creabella</a></p>
+            </div>
+            <div class="large-4 columns" style="padding-right: 10px"></div>
+            <div class="large-4 columns" style="padding-left: 10px">
+                <p><a href="https://www.facebook.com/kleinvossenpark?fref=ts" target="new"><img src="img/facebook.png"
+                                                                                                alt=""/
+                    style="min-width:25px; max-width:25px; box-shadow: none;"></a><a
+                        href="https://twitter.com/KleinVossenPark" target="new"><img src="img/twitter.png" alt=""/
+                    style="min-width:25px; max-width:25px; box-shadow: none;"></a><a
+                        href="http://www.youtube.com/user/KleinVossenPark" target="new"><img src="img/youtube.png"
+                                                                                             alt=""/
+                    style="min-width:25px; max-width:25px; box-shadow: none;"></a></p>
+            </div>
+        </div>
+    </footer>
+</div>
+<script>
+    document.write('<script src=js/vendor/' +
+        ('__proto__' in {} ? 'zepto' : 'jquery') +
+        '.js><\/script>')
+</script>
+<script src="js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+<!-- Magnific Popup core JS file -->
+<script src="magnific-popup/jquery.magnific-popup.js"></script>
+</body>
+</html>
